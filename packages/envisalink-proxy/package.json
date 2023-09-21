@@ -20,5 +20,8 @@
     "rimraf": "^5.0.1",
     "typescript": "^5.2.2",
     "eslint-config-custom": "*"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
