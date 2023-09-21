@@ -1,0 +1,24 @@
+{
+  "name": "envisalink-proxy",
+  "version": "1.0.0",
+  "description": "Create a proxy to the Envisalink TPI allowing for multiple concurrent connections.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "build": "rimraf ./dist && tsc",
+    "dev": "tsc -w",
+    "lint": "eslint ."
+  },
+  "keywords": [],
+  "author": "Carlos Barros",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.6.3",
+    "rimraf": "^5.0.1",
+    "typescript": "^5.2.2",
+    "eslint-config-custom": "*"
+  }
+}
