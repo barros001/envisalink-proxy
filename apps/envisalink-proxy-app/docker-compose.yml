@@ -4,6 +4,7 @@ services:
   node:
     restart: on-failure
     build: .
+    image: barros001/envisalink-proxy
     ports:
       - 4025:4025
     environment:
