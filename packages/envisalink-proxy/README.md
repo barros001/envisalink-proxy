@@ -14,4 +14,14 @@ npm i --save envisalink-proxy
 
 ## Usage
 
-Coming soon...
+```ts
+import { createProxy } from 'envisalink-proxy';
+
+createProxy({
+  envisaLink: {
+    host: '127.0.0.1',
+    password: 'password',
+    port: 4025,
+  },
+});
+```
