@@ -25,7 +25,7 @@
   "homepage": "https://github.com/barros001/envisalink-proxy/tree/main/apps/envisalink-proxy-app",
   "devDependencies": {
     "@types/node": "^20.6.3",
-    "envisalink-proxy": "*",
+    "envisalink-proxy": "1.0.1",
     "eslint-config-custom": "*",
     "nodemon": "^3.0.1",
     "rimraf": "^5.0.1",
