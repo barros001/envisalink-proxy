@@ -15,13 +15,18 @@ npm i --save envisalink-proxy
 ## Usage
 
 ```ts
-import { createProxy } from 'envisalink-proxy';
+import {createProxy} from 'envisalink-proxy';
 
 createProxy({
-  envisaLink: {
-    host: '127.0.0.1',
-    password: 'password',
-    port: 4025,
-  },
+    envisaLink: {
+        host: '127.0.0.1',
+        password: 'user',
+        port: 4025, // optional, defaults to 4025
+        timeout: 5000, // optional, defaults to 5000
+    },
+    server: {
+        port: 4025, // optional, defaults to 4025
+        host: '0.0.0.0' // optional, defaults to '0.0.0.0'
+    }
 });
 ```

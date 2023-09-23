@@ -2,6 +2,9 @@ import type { Server, Socket } from 'node:net';
 import { createServer as nodeCreateServer } from 'node:net';
 import type { Options } from './types';
 
+const DEFAULT_PORT = 4025;
+const DEFAULT_HOST = '0.0.0.0';
+
 export function createServer(option: Options, envisaLinkConnection: Socket): Server {
   const server = nodeCreateServer((socket) => {
     let authenticated = false;
@@ -42,8 +45,8 @@ export function createServer(option: Options, envisaLinkConnection: Socket): Ser
     });
   });
 
-  const port = option.server?.port || 4025;
-  const host = option.server?.host || '0.0.0.0';
+  const port = option.server?.port || DEFAULT_PORT;
+  const host = option.server?.host || DEFAULT_HOST;
 
   console.log(`Listening on tcp://${host}:${port}`);
   server.listen(port, host);

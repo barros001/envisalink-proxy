@@ -2,6 +2,9 @@ import type { Socket } from 'node:net';
 import { connect } from 'node:net';
 import type { Options } from './types';
 
+const DEFAULT_PORT = 4025;
+const DEFAULT_TIMEOUT = 5000;
+
 export function createConnection(options: Options): Socket {
   let authenticated = false;
 
@@ -9,12 +12,12 @@ export function createConnection(options: Options): Socket {
 
   const evlConnection = connect({
     host: options.envisaLink.host,
-    port: options.envisaLink.port || 4025,
+    port: options.envisaLink.port || DEFAULT_PORT,
   });
 
   const connectionTimeoutTimer = setTimeout(() => {
     evlConnection.destroy(new Error('Connection timed out'));
-  }, options.envisaLink.timeout || 5000);
+  }, options.envisaLink.timeout || DEFAULT_TIMEOUT);
 
   evlConnection.on('connect', () => {
     clearTimeout(connectionTimeoutTimer);
