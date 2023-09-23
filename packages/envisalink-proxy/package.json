@@ -15,6 +15,12 @@
   "keywords": [],
   "author": "Carlos Barros",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/barros001/envisalink-proxy.git",
+    "directory": "packages/envisalink-proxy"
+  },
+  "homepage": "https://github.com/barros001/envisalink-proxy/tree/main/packages/envisalink-proxy",
   "devDependencies": {
     "@types/node": "^20.6.3",
     "rimraf": "^5.0.1",
