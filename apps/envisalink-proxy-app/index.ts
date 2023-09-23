@@ -6,5 +6,6 @@ createProxy({
     host: process.env.HOST || '127.0.0.1',
     password: process.env.PASSWORD || 'password',
     port: process.env.PORT ? parseInt(process.env.PORT) : 4025,
+    timeout: process.env.TIMEOUT ? parseInt(process.env.TIMEOUT) : 5000,
   },
 });

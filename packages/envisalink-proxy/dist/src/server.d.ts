@@ -1,5 +1,5 @@
 /// <reference types="node" />
 import type { Server, Socket } from 'node:net';
-import type { Option } from './types';
-export declare function createServer(option: Option, envisaLinkConnection: Socket): Server;
+import type { Options } from './types';
+export declare function createServer(option: Options, envisaLinkConnection: Socket): Server;
 //# sourceMappingURL=server.d.ts.map

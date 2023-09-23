@@ -1,18 +1,23 @@
 import type { Socket } from 'node:net';
 import { connect } from 'node:net';
-import type { Option } from './types';
+import type { Options } from './types';
 
-export function createConnection(option: Option): Socket {
+export function createConnection(options: Options): Socket {
   let authenticated = false;
 
   console.debug('Connecting to EnvisaLink...');
 
   const evlConnection = connect({
-    host: option.envisaLink.host,
-    port: option.envisaLink.port || 4025,
+    host: options.envisaLink.host,
+    port: options.envisaLink.port || 4025,
   });
 
+  const connectionTimeoutTimer = setTimeout(() => {
+    evlConnection.destroy(new Error('Connection timed out'));
+  }, options.envisaLink.timeout || 5000);
+
   evlConnection.on('connect', () => {
+    clearTimeout(connectionTimeoutTimer);
     console.debug('Connected to EnvisaLink');
   });
 
@@ -21,7 +26,7 @@ export function createConnection(option: Option): Socket {
 
     switch (slice.trim()) {
       case 'Login:':
-        evlConnection.write(`${option.envisaLink.password}\n`);
+        evlConnection.write(`${options.envisaLink.password}\n`);
         break;
       case 'OK':
         console.debug('Successfully logged in');

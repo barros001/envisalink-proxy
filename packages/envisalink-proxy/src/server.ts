@@ -1,8 +1,8 @@
 import type { Server, Socket } from 'node:net';
 import { createServer as nodeCreateServer } from 'node:net';
-import type { Option } from './types';
+import type { Options } from './types';
 
-export function createServer(option: Option, envisaLinkConnection: Socket): Server {
+export function createServer(option: Options, envisaLinkConnection: Socket): Server {
   const server = nodeCreateServer((socket) => {
     let authenticated = false;
 

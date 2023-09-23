@@ -10,7 +10,7 @@ To launch the container, follow these steps:
 
 ```bash
 $ docker pull barros001/envisalink-proxy:latest
-$ docker run -d --name envisalink-proxy --restart=always -p 4025:4025 --env HOST=<EnvisaLink IP> --env PASSWORD=<EnvisaLink Password> --env PORT=4025 barros001/envisalink-proxy:latest
+$ docker run -d --name envisalink-proxy --restart=always -p 4025:4025 --env HOST=<EnvisaLink IP> --env PASSWORD=<EnvisaLink Password> --env PORT=4025 --env TIMEOUT=5000 barros001/envisalink-proxy:latest
 ```
 
 Ensure that you replace `<EnvisaLink IP>` and `<EnvisaLink Password>` with your specific EnvisaLink configuration values.

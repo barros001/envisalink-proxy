@@ -12,6 +12,10 @@ function createProxy(option) {
             connection.write(data);
         }
     });
+    evlConnection.on('error', (err) => {
+        server.close();
+        throw new Error(`EnvisaLink connection error: ${err.message}`);
+    });
     server.on('authenticated', (socket) => {
         connections.push(socket);
     });

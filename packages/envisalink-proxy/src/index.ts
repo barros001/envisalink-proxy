@@ -1,9 +1,9 @@
-import type { Socket } from 'node:net';
+import type { Server, Socket } from 'node:net';
 import { createConnection } from './envisalink-connection';
 import { createServer } from './server';
-import type { Option } from './types';
+import type { Options } from './types';
 
-export function createProxy(option: Option): void {
+export function createProxy(option: Options): Server {
   const connections: Socket[] = [];
   const evlConnection = createConnection(option);
   const server = createServer(option, evlConnection);
@@ -25,4 +25,16 @@ export function createProxy(option: Option): void {
       connections.splice(index, 1);
     }
   });
+
+  evlConnection.on('error', (err: Error) => {
+    server.close();
+    throw new Error(`EnvisaLink connection error: ${err.message}`);
+  });
+
+  server.on('error', (err: Error) => {
+    server.close();
+    throw new Error(`Server error: ${err.message}`);
+  });
+
+  return server;
 }

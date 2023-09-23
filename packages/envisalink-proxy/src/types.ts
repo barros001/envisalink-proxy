@@ -1,11 +1,12 @@
-export interface Option {
-    envisaLink: {
-        host: string;
-        port?: number;
-        password: string;
-    };
-    server?: {
-        host?: string;
-        port?: number;
-    };
-};
+export interface Options {
+  envisaLink: {
+    host: string;
+    port?: number;
+    password: string;
+    timeout?: number;
+  };
+  server?: {
+    host?: string;
+    port?: number;
+  };
+}
